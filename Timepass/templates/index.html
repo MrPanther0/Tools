@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secure File Encryption</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 90%;
+            max-width: 500px;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        label {
+            font-weight: bold;
+            color: #555;
+        }
+        input[type="file"] {
+            padding: 5px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Secure File Encryption</h1>
+
+        <!-- Encrypt Section -->
+        <form action="/encrypt" method="post" enctype="multipart/form-data">
+            <label for="file">Select File to Encrypt:</label>
+            <input type="file" id="file" name="file" required>
+            <button type="submit">Encrypt File</button>
+        </form>
+
+        <hr>
+
+        <!-- Decrypt Section -->
+        <form action="/decrypt" method="post" enctype="multipart/form-data">
+            <label for="encrypted-file">Select Encrypted File:</label>
+            <input type="file" id="encrypted-file" name="file" required>
+
+            <label for="key">Upload Encryption Key:</label>
+            <input type="file" id="key" name="key" required>
+
+            <button type="submit">Decrypt File</button>
+        </form>
+    </div>
+</body>
+</html>
